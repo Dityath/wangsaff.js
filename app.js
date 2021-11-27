@@ -12,7 +12,7 @@ const qrcode = require("qrcode-terminal");
 const client = new Client({
   puppeteer: {
     headless: true,
-    // browserWSEndpoint: `ws://178.128.25.31:1000`,
+    browserWSEndpoint: `ws://178.128.25.31:1000`,
   },
   // session: sessionCfg,
 });
