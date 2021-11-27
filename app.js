@@ -10,7 +10,10 @@ if (fs.existsSync(SESSION_FILE_PATH)) {
 }
 
 const client = new Client({
-  puppeteer: { headless: true },
+  puppeteer: {
+    headless: true,
+    browserWSEndpoint: `ws://localhost:3000`,
+  },
   session: sessionCfg,
 });
 
