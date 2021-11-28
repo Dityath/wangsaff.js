@@ -1,6 +1,7 @@
 const { Client } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");
 const fs = require("fs");
+const axios = require("axios");
 
 const SESSION_FILE_PATH = "./session/whatsapp-session.json";
 let sessionCfg;
@@ -32,17 +33,27 @@ client.on("authenticated", (session) => {
 });
 
 client.on("ready", () => {
-  console.log("Client is ready!");
+  console.log("Client Is Ready!");
 });
 
 client.on("message", async (msg) => {
   const chat = await msg.getChat();
-  const contact = await msg.getContact();
-
-  if (msg.body === "!nama") {
-    await chat.sendMessage(`Hello ${contact.id.user}`, {
-      mentions: [contact],
+  const user = await msg.getContact();
+  // switch (true) {
+  //   case msg === "!nama":
+  //     chat.sendMessage(`Hello @${contact.id.user}`, {
+  //       mentions: [contact],
+  //     });
+  //     break;
+  //   default:
+  //     chat.sendMessage(`Hello :D`);
+  // }
+  if (msg.body.includes("!nama")) {
+    await chat.sendMessage(`Hello @${user.id.user}`, {
+      mentions: [user],
     });
+  } else {
+    await client.sendMessage(msg.from, "unknown command");
   }
 });
 
