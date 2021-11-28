@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
+    "reset": "node reset.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,7 +22,7 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "./whatsapp-session.json"
+      "./session/whatsapp-session.json"
     ]
   }
 }
