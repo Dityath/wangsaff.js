@@ -3,7 +3,8 @@ const qrcode = require("qrcode-terminal");
 const fs = require("fs");
 const axios = require("axios");
 
-const SESSION_FILE_PATH = "./session/whatsapp-session.json";
+const SESSION_FILE_PATH = "./whatsapp-session.json";
+
 let sessionCfg;
 if (fs.existsSync(SESSION_FILE_PATH)) {
   sessionCfg = require(SESSION_FILE_PATH);
@@ -12,7 +13,6 @@ if (fs.existsSync(SESSION_FILE_PATH)) {
 const client = new Client({
   puppeteer: {
     headless: true,
-    // browserWSEndpoint: `ws://178.128.25.31:1000`,
   },
   session: sessionCfg,
 });
@@ -39,15 +39,7 @@ client.on("ready", () => {
 client.on("message", async (msg) => {
   const chat = await msg.getChat();
   const user = await msg.getContact();
-  // switch (true) {
-  //   case msg === "!nama":
-  //     chat.sendMessage(`Hello @${contact.id.user}`, {
-  //       mentions: [contact],
-  //     });
-  //     break;
-  //   default:
-  //     chat.sendMessage(`Hello :D`);
-  // }
+
   if (msg.body.includes("!nama")) {
     await chat.sendMessage(`Hello @${user.id.user}`, {
       mentions: [user],

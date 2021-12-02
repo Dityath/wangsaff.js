@@ -1,5 +1,5 @@
 const fs = require("fs");
-const SESSION_FILE_PATH = "./session/whatsapp-session.json";
+const SESSION_FILE_PATH = "./whatsapp-session.json";
 
 const readline = require("readline").createInterface({
   input: process.stdin,

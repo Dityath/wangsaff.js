@@ -23,7 +23,7 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "./session/whatsapp-session.json"
+      "./whatsapp-session.json"
     ]
   }
 }
