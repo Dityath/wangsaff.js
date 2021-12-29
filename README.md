@@ -1,4 +1,4 @@
-# whatsapp-automation
+# wangsaff.js
 
 Mengcoba-coba bikin bot buat whatsapp. Kalo mau pake tinggal clone dari repo ini, terus jalanin `npm install`, kalo udah langsung aja cobain `npm run dev`, abis itu buka app.js untuk ngedevelop appnya. Proses development sama deployment lebih lengkapnya bisa cek [dibawah](#Development).
 
